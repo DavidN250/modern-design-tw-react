@@ -9,9 +9,12 @@ const Hero = () => {
     <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY}`}>
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
         <motion.div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2"
-        initial={{x:0}}
-        animate={{x:100,rotate:360}}
-        transition={{duration:2}}
+        initial={{x:-100}}
+        animate={{x:0,rotate:[0,45,360,0]}}
+        transition={{
+          type:'spring',
+          bounce:0.8,
+          duration:2}}
         >
           <img src={discount} alt="discount" className="w-[32px] h-[32px]" />
           <p className={`${styles.paragraph} ml-2`}>
@@ -21,18 +24,30 @@ const Hero = () => {
         </motion.div>
 
         <div className="flex flex-row justify-between items-center w-full">
-          <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
+          <motion.h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]"
+           initial={{x:-200}}
+           animate={{x:0}}
+           transition={{duration:5}}
+          >
             The Next <br className="sm:block hidden" />{" "}
             <span className="text-gradient">Generation</span>{" "}
-          </h1>
-          <div className="ss:flex hidden md:mr-4 mr-0">
+          </motion.h1>
+          <motion.div className="ss:flex hidden md:mr-4 mr-0"
+            initial={{x:-20,y:-100}}
+            animate={{x:0,y:0}}
+            transition={{duration:1}}
+          >
             <GetStarted />
-          </div>
+          </motion.div>
         </div>
 
-        <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[100.8px] leading-[75px] w-full">
+        <motion.h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[100.8px] leading-[75px] w-full"
+          initial={{x:0,y:300}}
+          animate={{x:0,y:0}}
+          transition={{duration:4}}
+        >
           Payment Method.
-        </h1>
+        </motion.h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
           Our team of experts uses a methodology to identify the credit cards
           most likely to fit your needs. We examine annual percentage rates,
@@ -41,7 +56,16 @@ const Hero = () => {
       </div>
 
       <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
-        <img src={robot} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
+        <motion.img src={robot} alt="billing" className="w-[100%] h-[100%] relative z-[5]" 
+          initial={{x:-100}}
+          animate={{
+            x:0,
+            rotate:[0,90,0]}}
+          transition={{
+          type:'spring',
+          bounce:1.5,
+          duration:3}}
+        />
 
         {/* gradient start */}
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
