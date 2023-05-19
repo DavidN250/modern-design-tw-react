@@ -5,16 +5,17 @@ import GetStarted from "./GetStarted";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  const transition = {type:'spring',duration:3}
   return (
     <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY}`}>
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
         <motion.div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2"
         initial={{x:-100}}
-        animate={{x:0,rotate:[0,45,360,0]}}
+        animate={{x:0,rotate:[0,15,-15,15,-15,0]}}
         transition={{
-          type:'spring',
+          type:'tween',
           bounce:0.8,
-          duration:2}}
+          duration:4}}
         >
           <img src={discount} alt="discount" className="w-[32px] h-[32px]" />
           <p className={`${styles.paragraph} ml-2`}>
@@ -27,24 +28,24 @@ const Hero = () => {
           <motion.h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]"
            initial={{x:-200}}
            animate={{x:0}}
-           transition={{duration:5}}
+           transition={{...transition,type:'tween'}}
           >
             The Next <br className="sm:block hidden" />{" "}
             <span className="text-gradient">Generation</span>{" "}
           </motion.h1>
           <motion.div className="ss:flex hidden md:mr-4 mr-0"
-            initial={{x:-20,y:-100}}
-            animate={{x:0,y:0}}
-            transition={{duration:1}}
+            initial={{x:-200}}
+            whileInView={{x:0,}}
+            transition={{...transition,type:'tween'}}
           >
             <GetStarted />
           </motion.div>
         </div>
 
         <motion.h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[100.8px] leading-[75px] w-full"
-          initial={{x:0,y:300}}
-          animate={{x:0,y:0}}
-          transition={{duration:4}}
+          initial={{x:-200}}
+          whileInView={{x:0,}}
+          transition={{...transition,type:'tween'}}
         >
           Payment Method.
         </motion.h1>
@@ -58,12 +59,9 @@ const Hero = () => {
       <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
         <motion.img src={robot} alt="billing" className="w-[100%] h-[100%] relative z-[5]" 
           initial={{x:-100}}
-          animate={{
-            x:0,
-            rotate:[0,90,0]}}
+          whileInView={{x:0}}
           transition={{
-          type:'spring',
-          bounce:1.5,
+          type:'tween',
           duration:3}}
         />
 

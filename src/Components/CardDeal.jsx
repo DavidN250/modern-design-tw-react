@@ -1,6 +1,7 @@
 import { card } from "../assets";
 import styles, { layout } from "../style";
 import Button from "./Button";
+import { motion } from "framer-motion";
 
 const CardDeal = () => (
   <section className={layout.section}>
@@ -18,7 +19,11 @@ const CardDeal = () => (
     </div>
 
     <div className={layout.sectionImg}>
-      <img src={card} alt="billing" className="w-[100%] h-[100%]" />
+      <motion.img src={card} alt="billing" className="w-[100%] h-[100%]" 
+        initial={{x:300}}
+        whileInView={{x:0,}}
+        transition={{type:'tween',duration:2}}
+      />
     </div>
   </section>
 );

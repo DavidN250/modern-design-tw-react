@@ -1,10 +1,15 @@
 import { apple, bill, google } from "../assets";
 import styles, { layout } from "../style";
+import { motion } from "framer-motion";
 
 const Billing = () => (
   <section id="product" className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
-      <img src={bill} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
+      <motion.img src={bill} alt="billing" className="w-[100%] h-[100%] relative z-[5]" 
+          initial={{x:-300}}
+          whileInView={{x:0,}}
+          transition={{type:'tween',duration:2}}
+      />
 
       {/* gradient start */}
       <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
